@@ -3,7 +3,7 @@ package bean;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "accessibilitat")
+@DatabaseTable(tableName = "eaccessible.accessibilitat")
 public class BeanAccessibilitat {
 
     @DatabaseField(id = true, columnName = "codiaccessibilitat")

@@ -51,11 +51,6 @@ public class IncidenciesDbContext {
             incidenceTypeDao = DaoManager.createDao(dataSourceConnectionSource, BeanTipoIncidencia.class);
         } catch (NamingException | SQLException | IOException e) {
             e.printStackTrace();
-            /*try (final JdbcConnectionSource jdbcConnectionSource = IncidenciesDbContext.getFallbackConnetionSource()) {
-                incidenceTypeDao = DaoManager.createDao(jdbcConnectionSource, BeanTipoIncidencia.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
         }
         return getIncidenceTypeDao();
     }
@@ -68,11 +63,6 @@ public class IncidenciesDbContext {
             incidenceDao = DaoManager.createDao(dataSourceConnectionSource, BeanIncidencia.class);
         } catch (NamingException | SQLException | IOException e) {
             e.printStackTrace();
-            /*try (final JdbcConnectionSource jdbcConnectionSource = IncidenciesDbContext.getFallbackConnetionSource()) {
-                incidenceDao = DaoManager.createDao(jdbcConnectionSource, BeanIncidencia.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
         }
         return getIncidenceDao();
     }
@@ -86,9 +76,5 @@ public class IncidenciesDbContext {
     private static DataSourceConnectionSource getConnectionSource() throws NamingException, SQLException {
         return new DataSourceConnectionSource(getDataSource(), new PostgresDatabaseType());
     }
-
-    /*private static JdbcConnectionSource getFallbackConnetionSource() throws SQLException {
-        return new JdbcConnectionSource("jdbc:postgresql://deinok.com:5434/incidencia?currentSchema=log", "incidencia", "incidencia");
-    }*/
 
 }

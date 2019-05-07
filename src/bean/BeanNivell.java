@@ -3,7 +3,7 @@ package bean;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "nivell")
+@DatabaseTable(tableName = "eaccessible.nivell")
 public class BeanNivell {
 
     @DatabaseField(id = true, columnName = "codinivell")

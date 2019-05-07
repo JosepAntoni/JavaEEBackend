@@ -3,7 +3,7 @@ package bean;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "caracteristicatipolocal")
+@DatabaseTable(tableName = "eaccessible.caracteristicatipolocal")
 public class BeanCaracteristicaTipoLocal {
 
     @DatabaseField(id = true, columnName = "codicaracteristicatipolocal")

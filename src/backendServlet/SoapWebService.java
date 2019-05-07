@@ -37,6 +37,15 @@ public class SoapWebService {
             throw new RuntimeException(e);
         }
     }
+    
+    @WebMethod()
+    public BeanCaracteristica getCharacteristicsById(int id) {
+        try {
+            return AccessibleDbContext.getCharacteristicDao().queryForId(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @WebMethod()
     public BeanLocal addLocal(final BeanLocal local) {

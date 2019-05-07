@@ -36,12 +36,7 @@ public class AccessibleDbContext {
         try (final DataSourceConnectionSource dataSourceConnectionSource = AccessibleDbContext.getConnectionSource()) {
             accessibilityDao = DaoManager.createDao(dataSourceConnectionSource, BeanAccessibilitat.class);
         } catch (NamingException | SQLException | IOException e) {
-            /*e.printStackTrace();
-            try (final JdbcConnectionSource jdbcConnectionSource = AccessibleDbContext.getFallbackConnetionSource()) {
-                accessibilityDao = DaoManager.createDao(jdbcConnectionSource, BeanAccessibilitat.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
+            e.printStackTrace();
         }
         return getAccessibilityDao();
     }
@@ -54,11 +49,6 @@ public class AccessibleDbContext {
             characteristicDao = DaoManager.createDao(dataSourceConnectionSource, BeanCaracteristica.class);
         } catch (NamingException | SQLException | IOException e) {
             e.printStackTrace();
-            /*try (final JdbcConnectionSource jdbcConnectionSource = AccessibleDbContext.getFallbackConnetionSource()) {
-                characteristicDao = DaoManager.createDao(jdbcConnectionSource, BeanCaracteristica.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
         }
         return getCharacteristicDao();
     }
@@ -71,11 +61,6 @@ public class AccessibleDbContext {
             characteristicLocalTypeDao = DaoManager.createDao(dataSourceConnectionSource, BeanCaracteristicaTipoLocal.class);
         } catch (NamingException | SQLException | IOException e) {
             e.printStackTrace();
-            /*try (final JdbcConnectionSource jdbcConnectionSource = AccessibleDbContext.getFallbackConnetionSource()) {
-                characteristicLocalTypeDao = DaoManager.createDao(jdbcConnectionSource, BeanCaracteristicaTipoLocal.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
         }
         return getCharacteristicLocalTypeDao();
     }
@@ -88,11 +73,6 @@ public class AccessibleDbContext {
             levelDao = DaoManager.createDao(dataSourceConnectionSource, BeanNivell.class);
         } catch (NamingException | SQLException | IOException e) {
             e.printStackTrace();
-            /*try (final JdbcConnectionSource jdbcConnectionSource = AccessibleDbContext.getFallbackConnetionSource()) {
-                levelDao = DaoManager.createDao(jdbcConnectionSource, BeanNivell.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
         }
         return getLevelDao();
     }
@@ -103,13 +83,9 @@ public class AccessibleDbContext {
         }
         try (final DataSourceConnectionSource dataSourceConnectionSource = AccessibleDbContext.getConnectionSource()) {
             localDao = DaoManager.createDao(dataSourceConnectionSource, BeanLocal.class);
+            return localDao;
         } catch (NamingException | SQLException | IOException e) {
             e.printStackTrace();
-            /*try (final JdbcConnectionSource jdbcConnectionSource = AccessibleDbContext.getFallbackConnetionSource()) {
-                localDao = DaoManager.createDao(jdbcConnectionSource, BeanLocal.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
         }
         return getLocalDao();
     }
@@ -122,11 +98,6 @@ public class AccessibleDbContext {
             localTypeDao = DaoManager.createDao(dataSourceConnectionSource, BeanTipoLocal.class);
         } catch (NamingException | SQLException | IOException e) {
             e.printStackTrace();
-            /*try (final JdbcConnectionSource jdbcConnectionSource = AccessibleDbContext.getFallbackConnetionSource()) {
-                localTypeDao = DaoManager.createDao(jdbcConnectionSource, BeanTipoLocal.class);
-            } catch (SQLException | IOException e1) {
-                throw new RuntimeException(e);
-            }*/
         }
         return getLocalTypeDao();
     }
@@ -139,9 +110,5 @@ public class AccessibleDbContext {
     private static DataSourceConnectionSource getConnectionSource() throws NamingException, SQLException {
         return new DataSourceConnectionSource(getDataSource(), new PostgresDatabaseType());
     }
-
-    /*private static JdbcConnectionSource getFallbackConnetionSource() throws SQLException {
-        return new JdbcConnectionSource("jdbc:postgresql://deinok.com:5433/eAccessible", "eAccessible", "eAccessible");
-    }*/
 
 }
