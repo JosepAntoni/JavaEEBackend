@@ -18,7 +18,7 @@ public class BeanAccessibilitat {
     @DatabaseField(columnName = "valor")
     public int value;
 
-    @DatabaseField(columnName = "verificat")
+    @DatabaseField(columnName = "verificat", defaultValue = "0")
     public char verified;
 
 }

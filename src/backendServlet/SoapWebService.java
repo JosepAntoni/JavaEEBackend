@@ -26,22 +26,13 @@ public class SoapWebService {
     }
 
     @WebMethod()
-    public List<BeanCaracteristica> getCharacteristics(final BeanLocal localType) {
+    public List<BeanCaracteristica> getCharacteristics(final BeanTipoLocal localType) {
         try {
             final List<BeanCaracteristica> result = new ArrayList<>();
             for (BeanCaracteristicaTipoLocal characteristicLocalType : AccessibleDbContext.getCharacteristicLocalTypeDao().queryForEq("coditipolocal", localType)) {
                 result.add(AccessibleDbContext.getCharacteristicDao().queryForId(characteristicLocalType.characteristic.id));
             }
             return result;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    
-    @WebMethod()
-    public BeanCaracteristica getCharacteristicsById(int id) {
-        try {
-            return AccessibleDbContext.getCharacteristicDao().queryForId(id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

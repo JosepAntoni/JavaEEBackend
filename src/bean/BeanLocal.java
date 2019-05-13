@@ -27,27 +27,30 @@ public class BeanLocal {
     @DatabaseField(columnName = "nomlocal")
     public String name;
 
-    @DatabaseField(columnName = "observacions", canBeNull = true)
+    @DatabaseField(columnName = "observacions")
     public String observations;
 
     @DatabaseField(columnName = "verificat", defaultValue = "0")
     public char verified;
     
-    @DatabaseField(columnName = "urlca", canBeNull = true)
+    @DatabaseField(columnName = "urlca")
     public String urlCA;
     
-    @DatabaseField(columnName = "urles", canBeNull = true)
+    @DatabaseField(columnName = "urles")
     public String urlES;
     
-    @DatabaseField(columnName = "urlen", canBeNull = true)
+    @DatabaseField(columnName = "urlen")
     public String urlEN;
     
-    @DatabaseField(columnName = "urlgooglemapsca", canBeNull = true)
+    @DatabaseField(columnName = "urlgooglemapsca")
     public String urlGoogleMapsCA;
     
-    @DatabaseField(columnName = "urlgooglemapses", canBeNull = true)
+    @DatabaseField(columnName = "urlgooglemapses")
     public String urlGoogleMapsES;
     
-    @DatabaseField(columnName = "urlgooglemapsen", canBeNull = true)
-    public String urlGoogleMapsEN;
+    @DatabaseField(columnName = "coorx")
+    public float coorX;
+    
+    @DatabaseField(columnName = "coory")
+    public float coorY;
 }
